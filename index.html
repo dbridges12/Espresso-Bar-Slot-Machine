@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ebsm">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Espresso Bar Slot Machine</title>
+
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
+        <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+        <link rel="stylesheet" href="resources/css/normalize.css">
+        <link rel="stylesheet" href="resources/css/sweetalert.css">
+        <link rel="stylesheet" href="resources/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="resources/css/main.css">
+        <link rel="stylesheet" href="resources/css/slot.css">
+    </head>
+    <body ng-controller="AppController as app">
+
+        <header-bar></header-bar>
+
+        <section class="hero-content">
+            <!-- Welcome Text -->
+            <p class="hero-title spinResult">Click the Spin button below.</p>
+            <div class="slotmachine">
+                <div class='slotrack' id='slotrack'>
+                </div><br />
+                <button class="not-focusable spinbutton" ng-click="app.spinSlots()">Spin the Wheels!</button>
+            </div>
+        </section>
+
+        <section class="selling-points container clearfix">
+            <div class="point column third">
+                <span class="fa fa-coffee"></span>
+                <p class="point-title">Rich Italian Roast Coffee</p>
+                <p class="point-description">The finest ground Italian roast, very smooth and rich with virtually no bitterness at all.</p>
+            </div>
+            <div class="point column third">
+                <span class="fa fa-spoon"></span>
+                <p class="point-title">Deep Dark Espresso</p>
+                <p class="point-description">This select coffee is characterized by a new creamy consistency and unique aroma, allowing you to enjoy the best of Italian espresso</p>
+            </div>
+            <div class="point column third">
+                <span class="fa fa-leaf"></span>
+                <p class="point-title">Fine Oolong Tea</p>
+                <p class="point-description">Prized for its complex flavors and floral aroma, this famous Taiwanese tea is carefully hand-plucked and handcrafted.</p>
+            </div>
+        </section>
+
+
+        <footer-bar></footer-bar>
+
+        <script src="resources/libs/jquery.min.js"></script>
+        <script src="resources/libs/angular.min.js"></script>
+        <script src="resources/libs/ui-bootstrap.js"></script>
+        <script src="resources/libs/sweetalert.min.js"></script>
+
+        <script src="app/app.js"></script>
+        <script src="app/app.controller.js"></script>
+        <script src="app/components/headerBar.js"></script>
+        <script src="app/components/footerBar.js"></script>
+    </body>
+</html>
