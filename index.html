@@ -21,29 +21,29 @@
 
         <section class="hero-content">
             <!-- Welcome Text -->
-            <p class="hero-title spinResult">Click the Spin button below.</p>
+            <p class="hero-title spinResult">{{app.spinTitle}}</p>
             <div class="slotmachine">
                 <div class='slotrack' id='slotrack'>
                 </div><br />
-                <button class="not-focusable spinbutton" ng-click="app.spinSlots()">Spin the Wheels!</button>
+                <button class="not-focusable spinbutton" ng-click="app.spinSlots()">{{app.buttonTitle}}</button>
             </div>
         </section>
 
         <section class="selling-points container clearfix">
             <div class="point column third">
                 <span class="fa fa-coffee"></span>
-                <p class="point-title">Rich Italian Roast Coffee</p>
-                <p class="point-description">The finest ground Italian roast, very smooth and rich with virtually no bitterness at all.</p>
+                <p class="point-title">{{app.pointOneTitle}}</p>
+                <p class="point-description">{{app.pointOneText}}</p>
             </div>
             <div class="point column third">
                 <span class="fa fa-spoon"></span>
-                <p class="point-title">Deep Dark Espresso</p>
-                <p class="point-description">This select coffee is characterized by a new creamy consistency and unique aroma, allowing you to enjoy the best of Italian espresso</p>
+                <p class="point-title">{{app.pointTwoTitle}}</p>
+                <p class="point-description">{{app.pointTwoText}}</p>
             </div>
             <div class="point column third">
                 <span class="fa fa-leaf"></span>
-                <p class="point-title">Fine Oolong Tea</p>
-                <p class="point-description">Prized for its complex flavors and floral aroma, this famous Taiwanese tea is carefully hand-plucked and handcrafted.</p>
+                <p class="point-title">{{app.pointThreeTitle}}</p>
+                <p class="point-description">{{app.pointThreeText}}</p>
             </div>
         </section>
 
