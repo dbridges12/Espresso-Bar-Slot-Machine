@@ -7,6 +7,17 @@
     function AppController() {
         var vm = this;
 
+        // Text for main page - could be linked to back end and updated //
+        vm.spinTitle = 'Click the Spin button below.';
+        vm.buttonTitle = 'Spin the Wheels!';
+        vm.pointOneTitle = 'Rich Italian Roast Coffee';
+        vm.pointOneText = 'The finest ground Italian roast, very smooth and rich with virtually no bitterness at all.';
+        vm.pointTwoTitle = 'Deep Dark Espresso';
+        vm.pointTwoText = 'This select coffee is characterized by a new creamy consistency and unique aroma, allowing you to enjoy the best of Italian espresso.';
+        vm.pointThreeTitle = 'Fine Oolong Tea';
+        vm.pointThreeText = 'Prized for its complex flavors and floral aroma, this famous Taiwanese tea is carefully hand-plucked and handcrafted.';
+
+
         vm.slotwheeltracks = [];
         vm.wheelArray = [];
 
@@ -14,6 +25,7 @@
         vm.slotrack = $('#slotrack'); // horizontal track that holds each wheel //
         vm.numWheels = 3;   // number of wheels that spin
         vm.numCopies = 20;  // how many copies of each image per wheel
+
         // array of images for each wheel //
         vm.wheel1 = ['<img class="slotimage" src="resources/images/coffee.jpeg">', '<img class="slotimage" src="resources/images/espresso-beans.jpeg">', '<img class="slotimage" src="resources/images/tea-leaves.jpeg">'];
         vm.wheel2 = ['<img class="slotimage" src="resources/images/filter.jpeg">', '<img class="slotimage" src="resources/images/tamper.jpeg">', '<img class="slotimage" src="resources/images/tea-ball.jpeg">'];
@@ -29,13 +41,15 @@
          * @desc builds the page for the slot machine
          */
         vm.initWheels = function () {
+            var i, wrapperDiv, slotDiv, wrapperRef;
+
             // create the wrapper div and slot div for each wheel, then populate with images //
-            for (var i = 0; i < vm.numWheels; i++) {
-                var wrapperDiv = $('<div id="wrapper_' + i + '"  class ="wrapper">');
-                var slotDiv = $('<div class ="slot">');
+            for (i = 0; i < vm.numWheels; i++) {
+                wrapperDiv = $('<div id="wrapper_' + i + '"  class ="wrapper">');
+                slotDiv = $('<div class ="slot">');
 
                 // add the wrapper and slot divs to each slot track //
-                var wrapperRef = wrapperDiv.append(slotDiv);
+                wrapperRef = wrapperDiv.append(slotDiv);
                 vm.slotrack.append(wrapperDiv);
 
                 // populate each wheel with 20 of each image //
@@ -51,9 +65,10 @@
          * @desc appends all the images to each wheel based on reps
          */
         vm.addImages = function (wheeltrack, imagearray, reps) {
-            for (var i = 0; i < reps; i++) {
+            var i, j;
+            for (i = 0; i < reps; i++) {
                 // add each image to the slot div of the wheeltrack reps number of times //
-                for (var j = 0; j < imagearray.length; j++) {
+                for (j = 0; j < imagearray.length; j++) {
                     wheeltrack.children(":first").append(imagearray[j]);
                 }
             }
@@ -64,14 +79,15 @@
          * @desc if a winner - blink the message 4 times
          */
         vm.blinkWinner = function () {
+            var elem, count = 1, intervalId;
+
             $('.spinResult').each(function () {
-                var elem = $(this);
+                elem = $(this);
                 // count the blinks
-                var count = 1;
-                var intervalId = setInterval(function () {
+                intervalId = setInterval(function () {
                     if (elem.css('visibility') == 'hidden') {
                         elem.css('visibility', 'visible');
-                        // increment counter when showing to count # of blinks and stop when visible
+                        // increment counter when showing to count # of blinks and to stop when visible
                         if (count++ === 4) {
                             clearInterval(intervalId);
                         }
@@ -115,6 +131,7 @@
                     {"margin-top": marginTop + "px"}, slotSpeed, 'swing', function () {
                         magicNum = 0;
                         animateResult += 1;
+
                         // this makes sure we wait until the last wheel has finished before checking for a winner //
                         if (animateResult === 3) {
 
@@ -153,7 +170,7 @@
             }
         };
 
-        // initialize each slot wheel //
+        // initialize each slot wheel when the controller loads //
         vm.initWheels();
     }
 
